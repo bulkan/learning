@@ -37,3 +37,10 @@ def getPageSizeConcurrently() = {
 
 println("Concurrent run")
 timeMethod { getPageSizeConcurrently }
+
+/*
+
+  * Add a count of number of links on page
+  * Bonus: make the sizer follow all the links on a give page and load them as well.
+
+*/
