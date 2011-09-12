@@ -1,2 +1,2 @@
-Darn,Pucky
-Pucky,Beans
+Shoot,Pucky
+Darn,Beans
