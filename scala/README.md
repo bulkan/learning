@@ -5,4 +5,7 @@ var is to define mutable variables and val is for immutables (constants). Try to
 helps with concurency later on.
 
 
+Notes
+=====
 
+foldLeft is like the bread and butter ? for terse Scala code that deals with collections
