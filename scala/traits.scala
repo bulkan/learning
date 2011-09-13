@@ -1,18 +1,33 @@
+import scala.collection.mutable.ArrayBuffer
+
 trait Censor  {
-  val wordPairs = HashMap(
+  val wordPairs = Map(
       "Shoot" -> "Pucky",
       "Darn" -> "Beans"
   )
  
   def replaceWords(words: String): String = {
+    /*
     wordPairs.foldLeft(words)((replaced, m) =>
         replaced.replaceAllLiterally(m._1, m._2)
-      )
+      )*/
+
+    var replaced = new ArrayBuffer[String]
+    words.split(" ").map(word => {
+        if (wordPairs.contains(word))
+          replaced.append(wordPairs(word))
+        else
+          replaced.append(word)
+      }
+    )
+
+    replaced.mkString(" ")
+
   }
 }
 
 class CensoredStrings(var s: String) extends Censor {
-  def getString() = this.s
+  def getString() = s
   def getReplacedString() = this.replaceWords(this.getString)
 }
 
