@@ -1,4 +1,4 @@
-import scala.collection.mutable.ArrayBuffer
+//import scala.collection.mutable.ArrayBuffer
 
 trait Censor  {
   val wordPairs = Map(
@@ -11,17 +11,9 @@ trait Censor  {
     wordPairs.foldLeft(words)((replaced, m) =>
         replaced.replaceAllLiterally(m._1, m._2)
       )*/
-
-    var replaced = new ArrayBuffer[String]
-    words.split(" ").map(word => {
-        if (wordPairs.contains(word))
-          replaced.append(wordPairs(word))
-        else
-          replaced.append(word)
-      }
-    )
-
-    replaced.mkString(" ")
+    words.split(" ").map(word => 
+      wordPairs.getOrElse(word, word) 
+    ) mkString(" ")
 
   }
 }
