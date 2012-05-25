@@ -58,23 +58,19 @@ def eval_func(genome):
 
     unique_sums, colsum, d1, d2, nums = sumall(genome)
 
-    max_score = genome.getHeight() * genome.getWidth() * 10 
-    score = max_score*1000
+    score = 0
 
-    # best score
-    if len(unique_sums) == 1 and len(nums) == 9:
-        score = max_score
-
-    # there has to be 9 unique numbers
     if len(nums) < 9:
-        score -=  ((9 - len(nums))*15)
+        score = 0.5
 
-    # there should only be 1 unique sum 
     if len(unique_sums) > 1:
-        score -=  (len(unique_sums)*45)
+        score = ((genome.getHeight() * 2) + 2) - len(unique_sums)
 
+    elif d1 != d2:
+        score = genome.getHeight() * 2 - len(unique_sums)
 
     return score
+
 
 def main():
 
@@ -82,18 +78,18 @@ def main():
     genome = G2DList.G2DList(3, 3)
     genome.evaluator.set(eval_func)
     genome.setParams(rangemin=1, rangemax=9)
-    max_score = genome.getHeight() * genome.getWidth() * 10 
-    genome.setParams(bestRawScore=max_score*1000)
+    #max_score = genome.getHeight() * genome.getWidth() * 10 
+    #genome.setParams(bestRawScore=max_score*1000)
 
     ga = GSimpleGA.GSimpleGA(genome)
-    ga.setGenerations(10000)
-    #ga.setElitism(True)
+    ga.setGenerations(2000)
+    ga.setElitism(True)
     ga.setMinimax(Consts.minimaxType["maximize"])
     #ga.setMutationRate(0.6)
     #ga.selector.set(Selectors.GRankSelector)
     #Selectors.GRouletteWheel
     #ga.terminationCriteria.set(GSimpleGA.ConvergenceCriteria)
-    ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
+    #ga.terminationCriteria.set(GSimpleGA.RawScoreCriteria)
 
     ga.evolve(freq_stats=100)
 
