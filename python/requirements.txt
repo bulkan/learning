@@ -1,0 +1,5 @@
+Flask==0.8
+Jinja2==2.6
+Pyevolve==0.6rc1
+Werkzeug==0.8.3
+yolk==0.4.3
