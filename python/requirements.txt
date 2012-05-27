@@ -1,5 +1,7 @@
 Flask==0.8
+Flask-OAuth==0.11
 Jinja2==2.6
 Pyevolve==0.6rc1
 Werkzeug==0.8.3
+oauth2==1.5.211
 yolk==0.4.3
