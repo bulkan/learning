@@ -14,25 +14,24 @@ include x^y, (x+y)/2, and x*y.
 
 (Use uint8(intValue) to convert between types.)*/
 
+package main
+
 import (
-    /*"code.google.com/p/go-tour/pic"*/
-    "fmt"
+    "code.google.com/p/go-tour/pic"
 )
 
 func Pic(dx, dy int) [][]uint8 {
     s := make([][]uint8, dy)
 
-    for y := 0; y <=dy; y++ {
-        s[y] = uint8(10)
-        for x := 0; x <=dx; x++ {
-            s[y] = uint8(10)
+    for y := 0; y < dy; y++ {
+        s[y] = make([]uint8, dx)
+        for x := 0; x < dx ; x++ {
+            s[y][x] = uint8(y^x * y+4/2 )
         }
     }
     return s
 }
 
-
 func main() {
-    /*pic.Show(Pic)*/
-    fmt.Println(Pic(3,5))
+    pic.Show(Pic)
 }
