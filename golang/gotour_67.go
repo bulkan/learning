@@ -30,7 +30,7 @@ func Same(t1, t2 *tree.Tree) bool {
     go Walk(t1, ch1)
     go Walk(t2, ch2)
 
-    for i := 1; i <= 10; i++ {
+    for i := 0; i < 10; i++ {
         v1 := <-ch1
         v2 := <-ch2
         if v1 != v2 {
@@ -42,7 +42,17 @@ func Same(t1, t2 *tree.Tree) bool {
 }
 
 func main() {
+    // Walk test
     t1 := tree.New(1)
+
+    ch := make(chan int)
+    go Walk(t1, ch)
+
+    for i := 0; i < 10; i++ {
+        fmt.Println(<-ch)
+    }
+
+    // Same test
     t2 := tree.New(1)
     fmt.Println(Same(t1, t2))
     t3 := tree.New(2)
