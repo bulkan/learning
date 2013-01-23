@@ -1,0 +1,3 @@
+[submodule "go/go-koans"]
+	path = go/go-koans
+	url = git@github.com:bulkan/go-koans.git
