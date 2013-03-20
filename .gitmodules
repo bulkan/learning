@@ -1,3 +1,6 @@
 [submodule "go/go-koans"]
 	path = go/go-koans
 	url = git@github.com:bulkan/go-koans.git
+[submodule "ruby/ruby_koans"]
+	path = ruby/ruby_koans
+	url = git@github.com:bulkan/ruby_koans.git
