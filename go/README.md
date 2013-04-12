@@ -2,7 +2,7 @@ Notes
 =====
 
 * Download from: http://code.google.com/p/go/downloads/list
-  *  Extact to $HOME
+  *  Extract to $HOME
 * Environment variable: GOROOT needs to point to the ```go``` folder
 * Put ```$GOROOT/bin``` on to $PATH
 
